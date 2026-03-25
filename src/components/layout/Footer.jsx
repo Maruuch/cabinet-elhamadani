@@ -17,8 +17,8 @@ export default function Footer({ locale }) {
             <div className="text-white font-extrabold text-lg mb-1">{CABINET.nom[locale]}</div>
             <div className="text-sm mb-5">{CABINET.avocat.titre[locale]}</div>
             <div className="flex gap-2">
-              <a href={CABINET.social.linkedin} className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gold transition-colors text-sm font-bold">in</a>
-              <a href={CABINET.social.facebook} className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gold transition-colors text-sm font-bold">f</a>
+              <a href={CABINET.reseaux.linkedin} className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gold transition-colors text-sm font-bold">in</a>
+              <a href={CABINET.reseaux.facebook} className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-gold transition-colors text-sm font-bold">f</a>
               <a href={`https://wa.me/${num}`} className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#25D366] transition-colors text-sm">ðŸ’¬</a>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function Footer({ locale }) {
         </div>
         <div className="border-t border-white/10 pt-7 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/30">
           <span>{t('copyright')}</span>
-          <Link href={`/${locale}/mentions-legales`} className="hovkò:text-gold/60 transition-colors">{t('legal')}</Link>
+          <Link href={`/${locale}/mentions-legales`} className="hover:text-gold/60 transition-colors">{t('legal')}</Link>
         </div>
       </div>
     </footer>
