@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-amiri: 'Amiri', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-gray-50 text-slate-900 antialiased;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-50; }
+  ::-webkit-scrollbar-thumb { @apply bg-navy rounded; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gold; }
+
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-widest mb-3;
+  }
+  .section-label::before {
+    content: '';
+    @apply block w-7 h-0.5 bg-gold flex-shrink-0;
+  }
+  [dir="ltr"] .section-label::before {
+    order: -1;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-extrabold text-navy leading-tight mb-4;
+  }
+
+  .section-sub {
+    @apply text-slate-500 text-base md:text-lg leading-relaxed mb-12;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-navy rounded-lg font-bold text-sm transition-all duration-300;
+    @apply hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(201,169,110,0.4)] hover:bg-gold-light;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-transparent text-white rounded-lg font-bold text-sm transition-all duration-300;
+    @apply border border-white/25 hover:bg-white/10 hover:border-white/50;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-navy text-white rounded-lg font-bold text-sm transition-all duration-300;
+    @apply hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(27,42,74,0.35)] hover:bg-navy-light;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 transition-all duration-300;
+    @apply hover:-translate-y-1.5 hover:shadow-xl hover:border-transparent;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.visible, .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Framer Motion default */
+[data-framer-appear-id] { will-change: transform, opacity; }
