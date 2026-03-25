@@ -37,7 +37,7 @@ export const CABINET = {
       icon: "⚖️",
       title: { ar: "القانون المدني", fr: "Droit Civil" },
       description: {
-        ar: "نتومى الدفاع عن حقوقكم في المنازعات المدنية، العقود، والملكية العقارية بكفاءة واحترافية.",
+        ar: "نتولى الدفاع عن حقوقكم في المنازعات المدنية، العقود، والملكية العقارية بكفاءة واحترافية.",
         fr: "Nous défendons vos droits dans les litiges civils, les contrats et la propriété immobilière avec compétence et professionnalisme."
       },
     },
@@ -46,7 +46,7 @@ export const CABINET = {
       icon: "👨‍👩‍👧",
       title: { ar: "قانون الأسرة", fr: "Droit de la Famille" },
       description: {
-        ar: "نقدم استشارات قانونية متخصصة في قضايا الزواج والطلاق والحضانة وال٥رث.",
+        ar: "نقدم استشارات قانونية متخصصة في قضايا الزواج والطلاق والحضانة والإرث.",
         fr: "Nous offrons des conseils juridiques spécialisés dans les affaires de mariage, divorce, garde d'enfants et succession."
       },
     },
@@ -55,7 +55,7 @@ export const CABINET = {
       icon: "💼",
       title: { ar: "القانون التجاري", fr: "Droit Commercial" },
       description: {
-        ar: "نساعد الشركات والمقاولين في التعاقد وتسوية النساعات التجارية وحماية حقوقهم.",
+        ar: "مساعد الشركات والمقاولين في التعاقد وتسوية النزاعات التجارية وحماية حقوقهم.",
         fr: "Nous accompagnons les entreprises et entrepreneurs dans la contractualisation, le règlement des litiges commerciaux et la protection de leurs droits."
       },
     },
@@ -82,9 +82,39 @@ export const CABINET = {
       icon: "👷",
       title: { ar: "قانون الشغل", fr: "Droit du Travail" },
       description: {
-        ar: "نحمي حقوق العمال وأصحاب العمل في النزاعات المتعلقة بالعمل والفعل والتعويض.",
+        ar: "نحمي حقوق العمال وأصحاب العمل في النزاعات المتعققة بالعمل والفصل والتعويض.",
         fr: "Nous protégeons les droits des salariés et des employeurs dans les litiges liés au travail, au licenciement et à l'indemnisation."
       },
+    },
+  ],
+
+  stats: [
+    { value: 10, suffix: "+", label: { ar: "سنوا֪ الخبرة", fr: "Ans d'expérience" } },
+    { value: 500, suffix: "+", label: { ar: "قضية ناجحة", fr: "Dossiers traités" } },
+    { value: 98, suffix: "%", label: { ar: "رضا العملاء", fr: "Clients satisfaits" } },
+    { value: 6, suffix: "", label: { ar: "تخصصات قانونية", fr: "Domaines d'expertise" } },
+  ],
+
+  process: [
+    {
+      num: 1,
+      title: { ar: "الاستشارة الأومى", fr: "Consultation initiale" },
+      desc: { ar: "نستمع إليكم ونحلل وضعكم القانوني بعناية.", fr: "Nous vous écoutons et analysons votre situation juridique avec attention." },
+    },
+    {
+      num: 2,
+      title: { ar: "دراسة الممف", fr: "Étude du dossier" },
+      desc: { ar: "نشوم بدراسة معمقة لممفكم وجمع الوثائق اللازمة.", fr: "Nous effectuons une étude approfondie de votre dossier et rassemblons les pièces nécessaires." },
+    },
+    {
+      num: 3,
+      title: { ar: "وضع الاستراتيجية", fr: "Élaboration de la stratégie" },
+      desc: { ar: "نشع معكم أفشل استراتييجية قانونية لتحقيق أهدافكم.", fr: "Nous élaborons ensemble la meilleure stratégie juridique pour atteindre vos objectifs." },
+    },
+    {
+      num: 4,
+      title: { ar: "اfفيذ والمتابعة", fr: "Exécution et suivi" },
+      desc: { ar: "نتولى تنفيذ الإجراءا֪ ونتابع ملنكم بشكل مستمر.", fr: "Nous prenons en charge l'exécution des démarches et assurons un suivi continu de votre dossier." },
     },
   ],
 
