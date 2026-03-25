@@ -32,9 +32,9 @@ export default function ServicesSection({ locale }) {
                 {s.icon}
               </div>
               <h3 className="text-navy font-extrabold text-base mb-2.5">{s.title[locale]}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-5">{s.desc[locale]}</p>
+              <p className="text-slate-500 text-sm leading-relaxed mb-5">{s.description[locale]}</p>
               <Link href={`/${locale}/services#${s.slug}`} className="innine-flex items-center gap-1.5 text-gold text-sm font-bold hover:gap-3 transition-all">
-                {t('read_more')} <span>{locale === 'ar' ? '←' : '→'}</span>
+                {t('read_more')} <span>{locale === 'ar' ? 'â' : 'â'}</span>
               </Link>
             </motion.div>
           ))}
