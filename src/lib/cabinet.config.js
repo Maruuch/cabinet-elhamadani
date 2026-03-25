@@ -118,6 +118,29 @@ export const CABINET = {
     },
   ],
 
+  faq: [
+    {
+      q: { ar: "ما هي تكلفة الاستشارة القانونية؟", fr: "Quel est le coût d'une consultation juridique ?" },
+      a: { ar: "تتفاو֪ تكلفة الاستشارة حسب طبيعة القضية وتعقيدها. نوفر أسعارًا تنافسية مع الحفاظ على أعلى معايير الجودة. يرجى التواصل معنا للحصول على تقدير مخصص.", fr: "Le coût d'une consultation varie selon la nature et la complexité du dossier. Nous proposons des tarifs compétitifs en maintenant les plus hauts standards de qualité. Contactez-nous pour un devis personnalisé." },
+    },
+    {
+      q: { ar: "كيف يمكنني حجز موعد مع المحامية؟", fr: "Comment prendre rendez-vous avec l'avocate ?" },
+      a: { ar: "يمكنكم التواصل معنا عبر الهاتف أو واتساب أو البريد الإلكتروني أو من خلال نموذج الاتصال على موقعنا. سيتم الرد على طلبكم في أقرب وقت ممكن.", fr: "Vous pouvez nous contacter par téléphone, WhatsApp, email ou via le formulaire de contact sur notre site. Votre demande sera traitée dans les meilleurs délais." },
+    },
+    {
+      q: { ar: "ما هي مجالات التخصص الرئيسية للمكتب؟", fr: "Quels sont les principaux domaines d'expertise du cabinet ?" },
+      a: { ar: "يتخصص مكتبنا في القانون المدني، قانون الأسرة، القانون التجاري، قانون العقارات، القانون الجنائي وقانون الشغل.", fr: "Notre cabinet est spécialisé en droit civil, droit de la famille, droit commercial, droit immobilier, droit pénal et droit du travail." },
+    },
+    {
+      q: { ar: "هل تقدمون استشارات قانونية عن بُعد؟", fr: "Proposez-vous des consultations juridiques à distance ?" },
+      a: { ar: "نعم، نوفر استشارات قانونية عن بُعد عبر الهاتف أو الفيديو لتلبية احتياجات موكلينا في أي مكان.", fr: "Oui, nous proposons des consultations juridiques à distance par téléphone ou vidéo pour répondre aux besoins de nos clients où qu'ils se trouvent." },
+    },
+    {
+      q: { ar: "ما هي المستندات التي يجب إحضارها في الاستشارة الأولى؟", fr: "Quels documents apporter lors de la première consultation ?" },
+      a: { ar: "يُنصح بإحظار جميع الوثائق المتعلقة بقضيتكم (عقود، مراسلات، أحكام قظائية...) وبطاقة الهوية الوطنية.", fr: "Il est conseillé d'apporter tous les documents relatifs à votre dossier (contrats, correspondances, jugements...) ainsi que votre carte d'identité nationale." },
+    },
+  ],
+
   reseaux: {
     facebook: "",
     linkedin: "",
