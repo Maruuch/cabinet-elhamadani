@@ -85,7 +85,7 @@ export default function ServicesPage({ params: { locale } }) {
             className="flex justify-center"
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
-     0      transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="h-1 w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
           </motion.div>
