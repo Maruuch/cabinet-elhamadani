@@ -99,7 +99,7 @@ export const CABINET = {
 
   stats: [
     { value: 10, suffix: "+", label: { ar: "سنوات الخبرة", fr: "Ans d'expérience" } },
-    { value: 500, suffix: "+", label: { ar: "قضية ناجحة", fr: "Dossiers traités" t },
+    { value: 500, suffix: "+", label: { ar: "قضية ناجحة", fr: "Dossiers traités" } },
     { value: 98, suffix: "%", label: { ar: "رضا العملاء", fr: "Clients satisfaits" } },
     { value: 6, suffix: "", label: { ar: "تخصصات قانونية", fr: "Domaines d'expertise" } },
   ],
