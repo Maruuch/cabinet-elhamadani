@@ -15,7 +15,7 @@ export default function HeroSection({ locale }) {
   const isRTL = locale === 'ar'
   const num = CABINET.contact.whatsapp.replace(/\D/g, '')
   const waMsg = encodeURIComponent(locale === 'ar'
-    ? 'Ø§ÙØ³ÙØ§Ù Ø¹ÙÙÙÙØ Ø£ÙØ¯ Ø§ÙØ§Ø³ØªÙØ³Ø§Ø± Ø¹Ù Ø®Ø¯ÙØ§Øª ÙÙØªØ¨ Ø§ÙØ­ÙØ¯Ø§ÙÙ.'
+    ? 'ÃÂ§ÃÂÃÂ³ÃÂÃÂ§ÃÂ ÃÂ¹ÃÂÃÂÃÂÃÂÃÂ ÃÂ£ÃÂÃÂ¯ ÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂÃÂ³ÃÂ§ÃÂ± ÃÂ¹ÃÂ ÃÂ®ÃÂ¯ÃÂÃÂ§ÃÂª ÃÂÃÂÃÂªÃÂ¨ ÃÂ§ÃÂÃÂ­ÃÂÃÂ¯ÃÂ§ÃÂÃÂ.'
     : 'Bonjour, je souhaite me renseigner sur les services du Cabinet Elhamadani.'
   )
 
@@ -48,11 +48,11 @@ export default function HeroSection({ locale }) {
 
           <motion.div {...fadeUp(0.4)} className="flex flex-wrap gap-3 mb-10">
             <a href={`https://wa.me/${num}?text=${waMsg}`} target="_blank" rel="noopener" className="btn-primary">
-              <span>ð¬</span> {t('cta_wa')}
+              <span>Ã°ÂÂÂ¬</span> {t('cta_wa')}
             </a>
             <Link href={`/${locale}/contact`} className="btn-outline-white">
               {t('cta_rdv')}
-              <span className={isRTL ? 'â' : 'â'} />
+              <span className={isRTL ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} />
             </Link>
           </motion.div>
 
@@ -83,19 +83,6 @@ export default function HeroSection({ locale }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {CABINET.stats.map((s, i) => (
-                <motion.div key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + i * 0.1 }}
-                  className="bg-white/5 border border-white/8 rounded-xl p-4 text-center hover:bg-white/10 transition-colors"
-                >
-                  <span className="block text-2xl font-extrabold text-gold leading-none">{s.value}{s.suffix}</span>
-                  <span className="text-white/45 text-[10px] mt-1 block">{s.label[locale]}</span>
-                </motion.div>
-              ))}
-            </div>
 
           </div>
         </motion.div>
