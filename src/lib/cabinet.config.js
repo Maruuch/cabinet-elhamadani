@@ -3,6 +3,16 @@ export const CABINET = {
     ar: "ÙÙØªØ¨ Ø§ÙØ­ÙØ¯Ø§ÙÙ ÙÙÙØ­Ø§ÙØ§Ø© ÙØ§ÙØ§Ø³ØªØ´Ø§Ø±Ø§Øª Ø§ÙÙØ§ÙÙÙÙØ©",
     fr: "Cabinet Elhamadani - Avocats & Conseil Juridique",
   },
+  nomLigne1: {
+    ar: "مكتب الحمداني",
+    fr: "Cabinet Elhamadani",
+  },
+
+  nomLigne2: {
+    ar: "للمحاماة والاستشارات القانونية",
+    fr: "Avocats & Conseil Juridique",
+  },
+
 
   avocat: {
     nom: {
