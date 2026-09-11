@@ -15,7 +15,7 @@ export default function HeroSection({ locale }) {
   const isRTL = locale === 'ar'
   const num = CABINET.contact.whatsapp.replace(/\D/g, '')
   const waMsg = encodeURIComponent(locale === 'ar'
-    ? 'السلام عليكم، أود الاستفسار عن خدمات مكتب الحمداني.'
+    ? 'Ø§ÙØ³ÙØ§Ù Ø¹ÙÙÙÙØ Ø£ÙØ¯ Ø§ÙØ§Ø³ØªÙØ³Ø§Ø± Ø¹Ù Ø®Ø¯ÙØ§Øª ÙÙØªØ¨ Ø§ÙØ­ÙØ¯Ø§ÙÙ.'
     : 'Bonjour, je souhaite me renseigner sur les services du Cabinet Elhamadani.'
   )
 
@@ -48,11 +48,11 @@ export default function HeroSection({ locale }) {
 
           <motion.div {...fadeUp(0.4)} className="flex flex-wrap gap-3 mb-10">
             <a href={`https://wa.me/${num}?text=${waMsg}`} target="_blank" rel="noopener" className="btn-primary">
-              <span>💬</span> {t('cta_wa')}
+              <span>ð¬</span> {t('cta_wa')}
             </a>
             <Link href={`/${locale}/contact`} className="btn-outline-white">
               {t('cta_rdv')}
-              <span className={isRTL ? '←' : '→'} />
+              <span className={isRTL ? 'â' : 'â'} />
             </Link>
           </motion.div>
 
@@ -79,7 +79,7 @@ export default function HeroSection({ locale }) {
               </div>
               <div>
                 <div className="text-white font-bold text-base">{CABINET.avocat.nom[locale]}</div>
-                <div className="text-white/55 text-xs mt-0.5">{CABINET.avocat.titre[locale]}</div>
+
               </div>
             </div>
 
@@ -97,10 +97,6 @@ export default function HeroSection({ locale }) {
               ))}
             </div>
 
-            <div className="absolute -bottom-4 bg-gold text-navy px-5 py-2 rounded-full text-xs font-extrabold shadow-[0_4px_16px_rgba(201,169,110,0.4)]"
-              style={isRTL ? { right: '28px' } : { left: '28px' }}>
-              🏛 {locale === 'ar' ? 'هيئة الدار البيظاء' : 'Barreau de Casablanca'}
-            </div>
           </div>
         </motion.div>
       </div>
