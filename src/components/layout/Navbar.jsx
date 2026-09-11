@@ -33,10 +33,10 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between gap-6">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center text-white text-xl">⚖</div>
+            <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center text-white text-xl">â</div>
             <div className="leading-tight">
-              <div className="text-[15px] font-extrabold text-navy">{CABINET.nom[locale]}</div>
-              <div className="text-[11px] text-slate-400">{CABINET.avocat.titre[locale]}</div>
+              <div className="text-[15px] font-extrabold text-navy leading-tight">{CABINET.nomLigne1[locale]}</div>
+              <div className="text-[12px] font-medium text-slate-500 leading-tight">{CABINET.nomLigne2[locale]}</div>
             </div>
           </Link>
 
