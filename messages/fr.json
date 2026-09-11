@@ -1,81 +1,98 @@
 {
   "nav": {
     "home": "Accueil",
-    "about": "À propos",
-    "services": "Compétences",
+    "about": "Ã propos",
+    "services": "CompÃ©tences",
     "process": "Notre approche",
     "contact": "Contact",
     "rdv": "Prendre RDV",
     "cta": "Prendre RDV"
   },
   "hero": {
-    "badge": "Avocate agréée — Barreau de Casablanca",
-    "title": "Défense juridique fiable",
-    "title_em": "à votre service",
-    "sub": "Cabinet de Maître Fatimaezzahra Elhamadani — expertise juridique solide à Casablanca. Nous défendons vos droits avec transparence et efficacité.",
+    "badge": "Avocate agrÃ©Ã©e â Barreau de Casablanca",
+    "title": "Vos droits entre",
+    "title_em": "de bonnes mains",
+    "sub": "Consultation juridique confidentielle, réponse en 24h, défense de vos intérêts avec rigueur.",
     "cta_wa": "WhatsApp direct",
     "cta_rdv": "Prendre rendez-vous",
-    "trust_1": "🔒 Confidentialité totale",
-    "trust_2": "⚡ Réponse sous 24h",
-    "trust_3": "🇲🇦 Arabe / Français"
+    "trust_1": "ð ConfidentialitÃ© totale",
+    "trust_2": "â¡ RÃ©ponse sous 24h",
+    "trust_3": "ð²ð¦ Arabe / FranÃ§ais"
   },
   "services": {
-    "label": "Domaines de compétence",
-    "title": "Nous défendons vos dossiers avec expertise",
-    "sub": "Nous assurons la défense de nos clients dans de nombreux domaines devant toutes les juridictions du Royaume.",
+    "label": "Domaines de compÃ©tence",
+    "title": "Nous dÃ©fendons vos dossiers avec expertise",
+    "sub": "Nous assurons la dÃ©fense de nos clients dans de nombreux domaines devant toutes les juridictions du Royaume.",
     "read_more": "En savoir plus",
     "hero_title": "Nos domaines d'expertise",
-    "hero_sub": "Défense juridique complète dans six domaines essentiels"
+    "hero_sub": "DÃ©fense juridique complÃ¨te dans six domaines essentiels"
   },
   "about": {
-    "label": "À propos",
-    "hero_badge": "Avocate — Barreau de Casablanca",
-    "hero_title": "Maître Fatimaezzahra Elhamadani",
-    "hero_sub": "Avocate engagée pour défendre les droits de ses clients avec expertise et transparence",
+    "label": "Ã propos",
+    "hero_badge": "Avocate â Barreau de Casablanca",
+    "hero_title": "MaÃ®tre Fatimaezzahra Elhamadani",
+    "hero_sub": "Avocate engagÃ©e pour dÃ©fendre les droits de ses clients avec expertise et transparence",
     "bio_title": "Mon parcours",
-    "p1": "Avocate inscrite au Barreau de Casablanca, Maître Elhamadani se distingue par une expertise juridique de haut niveau dans de nombreux domaines.",
-    "p2": "Elle offre ses services en arabe et en français, garantissant une représentation efficace devant toutes les juridictions marocaines.",
-    "p3": "[À COMPLÉTER — Biographie détaillée de Maître Elhamadani]",
+    "p1": "Avocate inscrite au Barreau de Casablanca, MaÃ®tre Elhamadani se distingue par une expertise juridique de haut niveau dans de nombreux domaines.",
+    "p2": "Elle offre ses services en arabe et en franÃ§ais, garantissant une reprÃ©sentation efficace devant toutes les juridictions marocaines.",
+    "p3": "[Ã COMPLÃTER â Biographie dÃ©taillÃ©e de MaÃ®tre Elhamadani]",
     "read_more": "En savoir plus",
-    "tags": ["Expertise juridique", "Arabe / Français", "Totale transparence", "Casablanca"],
+    "tags": [
+      "Expertise juridique",
+      "Arabe / FranÃ§ais",
+      "Totale transparence",
+      "Casablanca"
+    ],
     "values_title": "Nos valeurs",
     "values": [
-      { "icon": "⚖️", "title": "Intégrité", "desc": "Nous respectons les plus hauts standards d'éthique professionnelle dans chaque dossier." },
-      { "icon": "🛡️", "title": "Confidentialité", "desc": "La protection des informations de nos clients est notre priorité absolue." },
-      { "icon": "🎯", "title": "Efficacité", "desc": "Nous cherchons à obtenir les meilleurs résultats par les voies les plus directes." }
+      {
+        "icon": "âï¸",
+        "title": "IntÃ©gritÃ©",
+        "desc": "Nous respectons les plus hauts standards d'Ã©thique professionnelle dans chaque dossier."
+      },
+      {
+        "icon": "ð¡ï¸",
+        "title": "ConfidentialitÃ©",
+        "desc": "La protection des informations de nos clients est notre prioritÃ© absolue."
+      },
+      {
+        "icon": "ð¯",
+        "title": "EfficacitÃ©",
+        "desc": "Nous cherchons Ã  obtenir les meilleurs rÃ©sultats par les voies les plus directes."
+      }
     ],
     "timeline_title": "Parcours professionnel",
     "cta_title": "Besoin d'un conseil juridique ?",
-    "cta_sub": "Contactez-nous aujourd'hui pour votre première consultation.",
+    "cta_sub": "Contactez-nous aujourd'hui pour votre premiÃ¨re consultation.",
     "cta_rdv": "Prendre RDV",
     "cta_contact": "Nous contacter"
   },
   "process": {
     "label": "Notre approche",
-    "title": "4 étapes pour prendre en charge votre dossier"
+    "title": "4 Ã©tapes pour prendre en charge votre dossier"
   },
   "faq": {
-    "label": "Questions fréquentes",
-    "title": "Les questions les plus posées"
+    "label": "Questions frÃ©quentes",
+    "title": "Les questions les plus posÃ©es"
   },
   "cta": {
     "title": "Besoin d'une consultation juridique ?",
-    "sub": "Contactez-nous aujourd'hui pour votre première consultation et discuter de votre dossier en toute confidentialité.",
+    "sub": "Contactez-nous aujourd'hui pour votre premiÃ¨re consultation et discuter de votre dossier en toute confidentialitÃ©.",
     "btn_wa": "Contactez-nous sur WhatsApp",
     "btn_form": "Formulaire de contact"
   },
   "contact": {
     "label": "Nous contacter",
-    "title": "Réservez votre consultation",
+    "title": "RÃ©servez votre consultation",
     "sub": "Pour une consultation juridique ou toute information sur nos services, contactez-nous.",
     "form_name": "Nom complet",
     "form_email": "Email",
-    "form_phone": "Téléphone",
+    "form_phone": "TÃ©lÃ©phone",
     "form_service": "Domaine juridique",
     "form_message": "Votre message",
     "form_submit": "Envoyer la demande",
     "form_sending": "Envoi en cours...",
-    "form_success": "Message envoyé avec succès ! Nous vous contacterons bientôt.",
+    "form_success": "Message envoyÃ© avec succÃ¨s ! Nous vous contacterons bientÃ´t.",
     "address_label": "Adresse",
     "email_label": "Email",
     "hours_label": "Horaires",
@@ -84,8 +101,8 @@
   },
   "rdv": {
     "label": "Prise de RDV",
-    "title": "Réservez votre consultation",
-    "sub": "Choisissez le domaine et le créneau qui vous convient — nous confirmerons votre rendez-vous dans les 24h",
+    "title": "RÃ©servez votre consultation",
+    "sub": "Choisissez le domaine et le crÃ©neau qui vous convient â nous confirmerons votre rendez-vous dans les 24h",
     "step1": "Votre dossier",
     "step2": "Vos informations",
     "step3": "Confirmation",
@@ -93,35 +110,35 @@
     "service_placeholder": "Choisissez un domaine",
     "mode_label": "Type de consultation",
     "mode_office": "En cabinet",
-    "mode_video": "Visioconférence",
-    "mode_phone": "Téléphonique",
+    "mode_video": "VisioconfÃ©rence",
+    "mode_phone": "TÃ©lÃ©phonique",
     "name_label": "Nom complet",
-    "phone_label": "Téléphone",
+    "phone_label": "TÃ©lÃ©phone",
     "email_label": "Email",
-    "date_label": "Date souhaitée",
+    "date_label": "Date souhaitÃ©e",
     "notes_label": "Notes (optionnel)",
-    "notes_placeholder": "Ajoutez toute information utile pour préparer votre dossier...",
+    "notes_placeholder": "Ajoutez toute information utile pour prÃ©parer votre dossier...",
     "submit": "Confirmer la demande de RDV",
     "submitting": "Envoi en cours...",
-    "success_title": "Demande reçue !",
+    "success_title": "Demande reÃ§ue !",
     "success_sub": "Nous vous contactons dans les 24h pour confirmer votre rendez-vous.",
-    "calendar_title": "Ou réservez directement via Google Agenda",
-    "calendar_coming": "Bientôt disponible — nt bloc sera connecté directement à l'agenda de Maître Elhamadani",
-    "guarantee_1": "Confidentialité totale",
-    "guarantee_2": "Réponse sous 24h",
+    "calendar_title": "Ou rÃ©servez directement via Google Agenda",
+    "calendar_coming": "BientÃ´t disponible â nt bloc sera connectÃ© directement Ã  l'agenda de MaÃ®tre Elhamadani",
+    "guarantee_1": "ConfidentialitÃ© totale",
+    "guarantee_2": "RÃ©ponse sous 24h",
     "guarantee_3": "Sans engagement"
   },
   "mentions": {
-    "title": "Mentions légales",
-    "editor_title": "Éditeur",
-    "host_title": "Hébergement",
-    "data_title": "Protection des données",
-    "ip_title": "Propriété intellectuelle"
+    "title": "Mentions lÃ©gales",
+    "editor_title": "Ãditeur",
+    "host_title": "HÃ©bergement",
+    "data_title": "Protection des donnÃ©es",
+    "ip_title": "PropriÃ©tÃ© intellectuelle"
   },
   "footer": {
     "links_title": "Liens rapides",
     "contact_title": "Contact",
-    "copyright": "© 2025 Cabinet Elhamadani — Tous droits réservés",
-    "legal": "Mentions légales"
+    "copyright": "Â© 2025 Cabinet Elhamadani â Tous droits rÃ©servÃ©s",
+    "legal": "Mentions lÃ©gales"
   }
 }
