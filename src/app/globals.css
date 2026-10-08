@@ -56,6 +56,11 @@
     @apply border border-white/25 hover:bg-white/10 hover:border-white/50;
   }
 
+  .btn-outline {
+    @apply inline-flex items-center gap-2 bg-transparent text-navy rounded-lg font-bold transition-all duration-300;
+    @apply border border-navy/25 hover:bg-navy hover:text-white hover:border-navy;
+  }
+
   .btn-navy {
     @apply inline-flex items-center gap-2 px-7 py-3.5 bg-navy text-white rounded-lg font-bold text-sm transition-all duration-300;
     @apply hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(27,42,74,0.35)] hover:bg-navy-light;
