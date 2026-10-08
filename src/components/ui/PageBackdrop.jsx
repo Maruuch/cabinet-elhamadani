@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import {
   motion,
+  useScroll,
   useTransform,
   useSpring,
   useMotionValue,
@@ -9,19 +10,13 @@ import {
 } from 'framer-motion'
 
 /**
- * Fond photo du hero en deux calques de profondeur.
+ * Fond photo fixe de la page d'accueil, en deux calques de profondeur.
  *  - hero-far.webp  : ciel + ville (le premier plan y est effacé)
  *  - hero-near.webp : main + balance, détourées (canal alpha)
- * Les deux calques partagent la même boîte et le même cadrage : au repos ils
- * se superposent exactement. La profondeur vient de leur décalage au scroll
- * (et au mouvement de la souris sur écran large).
  *
- * `progress`   : MotionValue 0 → 1 (0 = hero plein écran, 1 = hero sorti par le
- *                haut), déjà lissée. Elle est calculée dans HeroSection : un
- *                useScroll placé ici lirait la ref de la section avant qu'elle
- *                soit attachée et retomberait sur le scroll de toute la page.
- *                Avec "réduire les animations", HeroSection la fige à 0.
- * `sectionRef` : ref de la <section> du hero, pour suivre la souris.
+ * Le fond reste collé à l'écran pendant que le contenu défile par-dessus. Sur
+ * toute la hauteur de la page, les deux calques dérivent lentement en sens
+ * inverse et le premier plan grossit : c'est cet écart qui donne le relief.
  *
  * IMPORTANT : le JSX ne doit jamais dépendre de useReducedMotion(). Le serveur
  * ne connaît pas ce réglage ; un rendu différent côté navigateur provoque une
@@ -33,20 +28,32 @@ const FAR = '/images/hero-far.webp'
 const NEAR = '/images/hero-near.webp'
 const FOCUS = '53% 50%' // centre de la balance dans la photo
 
-// Ressort sur-amorti (aucun rebond). Plus `stiffness` est bas, plus le
+// Ressorts sur-amortis (aucun rebond). Plus `stiffness` est bas, plus le
 // mouvement est lent et coulé.
+const SCROLL_SPRING = { stiffness: 90, damping: 26, mass: 0.6, restDelta: 0.0002 }
 const POINTER_SPRING = { stiffness: 45, damping: 18, mass: 0.8 }
 
-export default function HeroBackdrop({ progress, sectionRef, isRTL }) {
+// Distance de scroll (px) sur laquelle le voile passe de "hero" à "lecture"
+const VEIL_DISTANCE = 620
+
+export default function PageBackdrop() {
   const reduce = useReducedMotion()
 
-  // Le lointain "traîne" (il descend dans la section), le premier plan suit le
-  // scroll et grossit : c'est cet écart qui donne la sensation de relief.
-  const farY = useTransform(progress, [0, 1], ['0%', '5%'])
-  const farScale = useTransform(progress, [0, 1], [1.03, 1.055])
-  const nearY = useTransform(progress, [0, 1], ['0%', '1.2%'])
-  const nearScale = useTransform(progress, [0, 1], [1.03, 1.085])
-  const veil = useTransform(progress, [0, 1], [0, 0.2])
+  // Progression sur toute la page : 0 en haut, 1 tout en bas
+  const { scrollY, scrollYProgress } = useScroll()
+  const smooth = useSpring(scrollYProgress, SCROLL_SPRING)
+  const progress = useTransform(smooth, (v) => (reduce ? 0 : v))
+
+  const farY = useTransform(progress, [0, 1], ['0%', '4%'])
+  const farScale = useTransform(progress, [0, 1], [1.04, 1.1])
+  const nearY = useTransform(progress, [0, 1], ['0%', '-3.5%'])
+  const nearScale = useTransform(progress, [0, 1], [1.04, 1.18])
+
+  // Le voile s'épaissit dès qu'on quitte le hero, pour que les sections de
+  // texte restent lisibles. Ce n'est pas un mouvement : il reste actif même
+  // avec "réduire les animations".
+  const veilTarget = useTransform(scrollY, [0, VEIL_DISTANCE], [0, 0.56], { clamp: true })
+  const veil = useSpring(veilTarget, { stiffness: 120, damping: 28, mass: 0.5, restDelta: 0.001 })
 
   // Souris : -0.5 → 0.5 sur chaque axe, lissé par un ressort
   const mx = useMotionValue(0)
@@ -61,35 +68,31 @@ export default function HeroBackdrop({ progress, sectionRef, isRTL }) {
   const tiltX = useTransform(sy, (v) => v * -1.2)
 
   useEffect(() => {
-    const el = sectionRef?.current
-    if (!el || reduce) return
+    if (reduce) return
     // Uniquement avec une vraie souris : rien au doigt
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
     const onMove = (e) => {
-      const r = el.getBoundingClientRect()
-      mx.set((e.clientX - r.left) / r.width - 0.5)
-      my.set((e.clientY - r.top) / r.height - 0.5)
+      mx.set(e.clientX / window.innerWidth - 0.5)
+      my.set(e.clientY / window.innerHeight - 0.5)
     }
     const onLeave = () => { mx.set(0); my.set(0) }
-    el.addEventListener('pointermove', onMove)
-    el.addEventListener('pointerleave', onLeave)
+    window.addEventListener('pointermove', onMove, { passive: true })
+    document.documentElement.addEventListener('pointerleave', onLeave)
     return () => {
-      el.removeEventListener('pointermove', onMove)
-      el.removeEventListener('pointerleave', onLeave)
+      window.removeEventListener('pointermove', onMove)
+      document.documentElement.removeEventListener('pointerleave', onLeave)
     }
-  }, [sectionRef, reduce, mx, my])
-
-  const textSide = isRTL ? 'to left' : 'to right'
+  }, [reduce, mx, my])
 
   return (
-    <div className="absolute inset-x-0 bottom-0 top-[72px] overflow-hidden pointer-events-none" aria-hidden="true">
+    <div className="page-backdrop" aria-hidden="true">
       <motion.div
         className="absolute inset-0"
         style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1400 }}
       >
         {/* Lointain : ciel + ville */}
         <motion.div
-          className="absolute -inset-[2%] will-change-transform"
+          className="absolute -inset-[6%] will-change-transform"
           style={{ y: farY, scale: farScale }}
         >
           <motion.img
@@ -108,7 +111,7 @@ export default function HeroBackdrop({ progress, sectionRef, isRTL }) {
 
         {/* Premier plan : main + balance */}
         <motion.div
-          className="absolute -inset-[2%] will-change-transform"
+          className="absolute -inset-[6%] will-change-transform"
           style={{ y: nearY, scale: nearScale, transformOrigin: '53% 100%' }}
         >
           <motion.img
@@ -125,22 +128,8 @@ export default function HeroBackdrop({ progress, sectionRef, isRTL }) {
         </motion.div>
       </motion.div>
 
-      {/* Voiles de lisibilité, du plus général au plus ciblé */}
-      <div className="absolute inset-0 bg-[#0B1322]/[0.62] lg:bg-[#0B1322]/40" />
-      <div
-        className="absolute inset-0 hidden lg:block"
-        style={{
-          background: `linear-gradient(${textSide}, rgba(11,19,34,0.88) 0%, rgba(11,19,34,0.7) 36%, rgba(11,19,34,0.16) 64%, rgba(11,19,34,0.34) 100%)`,
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(to bottom, rgba(11,19,34,0.35) 0%, rgba(11,19,34,0) 20%, rgba(11,19,34,0) 64%, rgba(11,19,34,0.8) 100%)',
-        }}
-      />
-      {/* Le fond s'assombrit à mesure que le hero quitte l'écran */}
+      {/* Voile de base, puis voile de lecture piloté par le scroll */}
+      <div className="absolute inset-0 bg-[#0B1322]/50" />
       <motion.div className="absolute inset-0 bg-[#0B1322]" style={{ opacity: veil }} />
     </div>
   )

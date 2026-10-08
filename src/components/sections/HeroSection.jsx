@@ -4,11 +4,10 @@ import { useTranslations } from '@/lib/i18n'
 import Link from 'next/link'
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion'
 import { CABINET } from '@/lib/cabinet.config'
-import HeroBackdrop from '@/components/ui/HeroBackdrop'
 
 // Le scroll arrive par à-coups (un cran de molette = un saut). On le fait
-// passer par un ressort sur-amorti : fond et contenu glissent vers leur
-// position au lieu d'y sauter, sans rebond.
+// passer par un ressort sur-amorti : le contenu glisse vers sa position au
+// lieu d'y sauter, sans rebond.
 const SCROLL_SPRING = { stiffness: 120, damping: 26, mass: 0.5, restDelta: 0.0005 }
 
 const fadeUp = (delay = 0) => ({
@@ -26,7 +25,7 @@ export default function HeroSection({ locale }) {
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
   const smooth = useSpring(scrollYProgress, SCROLL_SPRING)
   // "Réduire les animations" : on fige la valeur à 0 au lieu de changer le
-  // balisage (voir la note dans HeroBackdrop sur l'hydratation).
+  // balisage (voir la note dans PageBackdrop sur l'hydratation).
   const progress = useTransform(smooth, (v) => (reduce ? 0 : v))
   // Le contenu s'efface et remonte légèrement quand le hero quitte l'écran
   const contentY = useTransform(progress, [0, 1], ['0%', '-10%'])
@@ -38,9 +37,28 @@ export default function HeroSection({ locale }) {
   )
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen bg-[#0B1322] flex items-center overflow-hidden pt-[72px]">
-      {/* Fond photo en relief, animé au scroll */}
-      <HeroBackdrop progress={progress} sectionRef={sectionRef} isRTL={isRTL} />
+    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden pt-[72px]">
+      {/* La photo vient de PageBackdrop (fond fixe de la page). Ici, seulement
+          les voiles propres au hero : ils s'estompent vers le bas pour ne pas
+          laisser de ligne quand le hero défile. */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to bottom, #000 0%, #000 74%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, #000 0%, #000 74%, transparent 100%)',
+        }}
+      >
+        {/* Mobile : le texte occupe toute la largeur, voile uniforme */}
+        <div className="absolute inset-0 bg-[#0B1322]/40 lg:hidden" />
+        {/* Écran large : voile renforcé du côté du texte */}
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background: `linear-gradient(${isRTL ? 'to left' : 'to right'}, rgba(11,19,34,0.88) 0%, rgba(11,19,34,0.7) 38%, rgba(11,19,34,0) 66%, rgba(11,19,34,0.2) 100%)`,
+          }}
+        />
+      </div>
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
@@ -58,7 +76,7 @@ export default function HeroSection({ locale }) {
             <em className="text-gold not-italic">{t('title_em')}</em>
           </motion.h1>
 
-          <motion.p {...fadeUp(0.3)} className="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+          <motion.p {...fadeUp(0.3)} className="text-white/90 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
             {t('sub')}
           </motion.p>
 
@@ -66,7 +84,7 @@ export default function HeroSection({ locale }) {
             <a href={`https://wa.me/${num}?text=${waMsg}`} target="_blank" rel="noopener" className="btn-primary">
               <span>💬</span> {t('cta_wa')}
             </a>
-            <Link href={`/${locale}/contact`} className="btn-outline-white">
+            <Link href={`/${locale}/contact`} className="btn-outline-white bg-[#0B1322]/45">
               {t('cta_rdv')}
               <span aria-hidden="true">{isRTL ? '←' : '→'}</span>
             </Link>

@@ -8,11 +8,11 @@ export default function ServicesSection({ locale }) {
   const t = useTranslations('services')
 
   return (
-    <section id="services" className="py-16 bg-slate-50">
+    <section id="services" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-10">
           <div className="section-label justify-center">{t('label')}</div>
-          <h2 className="section-title">{t('title')}</h2>
+          <h2 className="section-title text-white">{t('title')}</h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -24,12 +24,12 @@ export default function ServicesSection({ locale }) {
               transition={{ duration: 0.4, delay: i * 0.07 }}
             >
               <Link href={`/${locale}/services#${s.slug}`}
-                className="card p-5 group flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow duration-300"
+                className="card bg-white/[0.06] border-white/10 hover:bg-white/[0.11] hover:border-gold/50 hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)] p-5 group flex flex-col items-center text-center gap-3"
               >
-                <div className="w-12 h-12 bg-slate-100 group-hover:bg-navy rounded-xl flex items-center justify-center text-2xl transition-colors duration-300">
+                <div className="w-12 h-12 bg-white/10 group-hover:bg-gold/25 rounded-xl flex items-center justify-center text-2xl transition-colors duration-300">
                   {s.icon}
                 </div>
-                <h3 className="text-navy font-bold text-sm leading-snug">{s.title[locale]}</h3>
+                <h3 className="text-white font-bold text-sm leading-snug">{s.title[locale]}</h3>
               </Link>
             </motion.div>
           ))}
@@ -37,7 +37,7 @@ export default function ServicesSection({ locale }) {
 
         <div className="text-center mt-8">
           <Link href={`/${locale}/services`}
-            className="btn-outline text-sm px-6 py-2.5"
+            className="btn-outline-white text-sm px-6 py-2.5"
           >
             {t('cta')}
           </Link>

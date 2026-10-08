@@ -13,11 +13,7 @@ export default function CtaSection({ locale }) {
   )
 
   return (
-    <section className="py-24 bg-navy relative overflow-hidden">
-      <div className="absolute inset-0 text-[300px] leading-none opacity-[0.03] flex items-center pointer-events-none select-none"
-        style={{ justifyContent: locale === 'ar' ? 'flex-start' : 'flex-end', padding: '0 40px' }}>
-        ⚖
-      </div>
+    <section className="py-28 relative overflow-hidden border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -26,7 +22,7 @@ export default function CtaSection({ locale }) {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">{t('title')}</h2>
-          <p className="text-white/60 text-base md:text-lg mb-10 max-w-xl mx-auto">{t('sub')}</p>
+          <p className="text-white/80 text-base md:text-lg mb-10 max-w-xl mx-auto">{t('sub')}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={`https://wa.me/${num}?text=${msg}`} target="_blank" rel="noopener" className="btn-primary">
               <span>💬</span> {t('btn_wa')}
