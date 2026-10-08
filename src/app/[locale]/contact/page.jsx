@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations, useLocale } from '@/lib/i18n';
 import { CABINET } from '@/lib/cabinet.config';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -77,21 +78,16 @@ export default function ContactPage({ params: { locale } }) {
   };
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="overflow-hidden pt-[72px]">
+      {/* Panorama de Casablanca, fixe derrière toute la page */}
+      <PageBackdrop variant="casa" />
       {/* Hero */}
       <motion.section
-        className="relative bg-gradient-to-br from-navy via-navy-900 to-navy text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute inset-0 opacity-10">
-          <motion.div
-            className="absolute top-10 right-20 w-96 h-96 bg-gold rounded-full filter blur-3xl"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-        </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.h1
@@ -104,7 +100,7 @@ export default function ContactPage({ params: { locale } }) {
           </motion.h1>
 
           <motion.p
-            className="text-xl text-slate-200"
+            className="text-xl text-white/80"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -116,7 +112,7 @@ export default function ContactPage({ params: { locale } }) {
 
       {/* Main Content */}
       <motion.section
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-20 px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -125,12 +121,12 @@ export default function ContactPage({ params: { locale } }) {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
           {/* Form */}
           <motion.div variants={itemVariants}>
-            <div className="bg-white border-2 border-slate-200 rounded-xl p-8">
-              <h2 className="text-3xl font-bold text-navy mb-8">Formulaire de contact</h2>
+            <div className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl p-8">
+              <h2 className="text-3xl font-bold text-white mb-8">Formulaire de contact</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Nom complet
                   </label>
                   <input
@@ -139,13 +135,13 @@ export default function ContactPage({ params: { locale } }) {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="Votre nom"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Email
                   </label>
                   <input
@@ -154,13 +150,13 @@ export default function ContactPage({ params: { locale } }) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="votre@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Téléphone
                   </label>
                   <input
@@ -168,20 +164,20 @@ export default function ContactPage({ params: { locale } }) {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="+33 6 00 00 00 00"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Service concerné
                   </label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all appearance-none bg-white cursor-pointer"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all appearance-none bg-[#101B30] cursor-pointer text-white placeholder-white/40 [color-scheme:dark] [&>option]:bg-[#101B30] [&>option]:text-white"
                   >
                     <option value="">Sélectionnez un service</option>
                     {CABINET.services.map((service) => (
@@ -193,7 +189,7 @@ export default function ContactPage({ params: { locale } }) {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Message
                   </label>
                   <textarea
@@ -202,7 +198,7 @@ export default function ContactPage({ params: { locale } }) {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all resize-none"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all resize-none bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="Décrivez votre situation..."
                   />
                 </div>
@@ -219,7 +215,7 @@ export default function ContactPage({ params: { locale } }) {
 
                 {success && (
                   <motion.div
-                    className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-700 text-center"
+                    className="bg-emerald-500/15 border border-emerald-400/40 rounded-lg p-4 text-emerald-200 text-center"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
@@ -233,18 +229,18 @@ export default function ContactPage({ params: { locale } }) {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="text-3xl font-bold text-navy mb-8">Nous joindre</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Nous joindre</h2>
 
             {/* Address Card */}
             <motion.div
-              className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-gold transition-colors duration-300 group"
+              className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl p-6 hover:border-gold transition-colors duration-300 group"
               whileHover={{ y: -4 }}
             >
               <div className="flex gap-4">
                 <div className="text-4xl">📍</div>
                 <div>
-                  <h3 className="font-bold text-navy mb-2">Adresse</h3>
-                  <p className="text-slate-600">
+                  <h3 className="font-bold text-white mb-2">Adresse</h3>
+                  <p className="text-white/80">
                     {CABINET.contact.adresse[locale] || CABINET.contact.adresse.fr || '[À COMPLÉTER]'}
                   </p>
                 </div>
@@ -254,13 +250,13 @@ export default function ContactPage({ params: { locale } }) {
             {/* Email Card */}
             <motion.a
               href={`mailto:${CABINET.contact.email}`}
-              className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-gold transition-colors duration-300 block group"
+              className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl p-6 hover:border-gold transition-colors duration-300 block group"
               whileHover={{ y: -4 }}
             >
               <div className="flex gap-4">
                 <div className="text-4xl">✉️</div>
                 <div>
-                  <h3 className="font-bold text-navy mb-2">Email</h3>
+                  <h3 className="font-bold text-white mb-2">Email</h3>
                   <p className="text-gold font-semibold">
                     {CABINET.contact.email}
                   </p>
@@ -273,14 +269,14 @@ export default function ContactPage({ params: { locale } }) {
               href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 hover:border-green-400 transition-colors duration-300 block group"
+              className="bg-emerald-900/45 border-2 border-emerald-400/40 rounded-xl p-6 hover:border-green-400 transition-colors duration-300 block group"
               whileHover={{ y: -4 }}
             >
               <div className="flex gap-4">
                 <div className="text-4xl">💬</div>
                 <div>
-                  <h3 className="font-bold text-navy mb-2">WhatsApp</h3>
-                  <p className="text-green-600 font-semibold">
+                  <h3 className="font-bold text-white mb-2">WhatsApp</h3>
+                  <p className="text-emerald-200 font-semibold">
                     {CABINET.contact.whatsapp}
                   </p>
                 </div>
@@ -289,14 +285,14 @@ export default function ContactPage({ params: { locale } }) {
 
             {/* Hours Card */}
             <motion.div
-              className="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-gold transition-colors duration-300"
+              className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl p-6 hover:border-gold transition-colors duration-300"
               whileHover={{ y: -4 }}
             >
               <div className="flex gap-4">
                 <div className="text-4xl">🕐</div>
                 <div>
-                  <h3 className="font-bold text-navy mb-3">Horaires</h3>
-                  <ul className="text-slate-600 text-sm space-y-1">
+                  <h3 className="font-bold text-white mb-3">Horaires</h3>
+                  <ul className="text-white/80 text-sm space-y-1">
                     <li>Lundi - Vendredi: 9:00 - 18:00</li>
                     <li>Samedi: Sur rendez-vous</li>
                     <li>Dimanche: Fermé</li>
@@ -307,14 +303,14 @@ export default function ContactPage({ params: { locale } }) {
 
             {/* Maps Placeholder */}
             <motion.div
-              className="bg-white border-2 border-slate-200 rounded-xl overflow-hidden h-80"
+              className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl overflow-hidden h-80"
               whileHover={{ y: -4 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-navy to-navy-800 flex items-center justify-center text-white relative">
+              <div className="w-full h-full bg-[#0B1322]/55 border border-white/10 flex items-center justify-center text-white relative">
                 <div className="text-center">
                   <div className="text-6xl mb-4">🗺️</div>
                   <p className="text-lg font-semibold mb-2">[GOOGLE_MAPS_EMBED_URL]</p>
-                  <p className="text-slate-300 text-sm">Intégration Google Maps à compléter</p>
+                  <p className="text-white/80 text-sm">Intégration Google Maps à compléter</p>
                 </div>
                 <iframe
                   src="[GOOGLE_MAPS_EMBED_URL]"
@@ -333,7 +329,7 @@ export default function ContactPage({ params: { locale } }) {
 
       {/* Bottom CTA */}
       <motion.section
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-500 to-emerald-600 text-white"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-emerald-600/20 border-t border-white/10 text-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -362,7 +358,7 @@ export default function ContactPage({ params: { locale } }) {
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-slate-50 transition-all duration-300 shadow-lg"
+            className="inline-flex items-center justify-center gap-3 bg-white text-emerald-800 font-bold py-4 px-8 rounded-lg hover:bg-emerald-50 transition-all duration-300 shadow-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

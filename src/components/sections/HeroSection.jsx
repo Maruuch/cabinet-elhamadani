@@ -66,7 +66,7 @@ export default function HeroSection({ locale }) {
         {/* Content */}
         <div>
           <motion.div {...fadeUp(0.1)}
-            className="inline-flex items-center gap-2 bg-gold/10 text-gold border border-gold/25 px-4 py-1.5 rounded-full text-xs font-bold mb-6">
+            className="inline-flex items-center gap-2 bg-[#0B1322]/60 text-gold-light border border-gold/40 px-4 py-1.5 rounded-full text-xs font-bold mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
             {t('badge')}
           </motion.div>

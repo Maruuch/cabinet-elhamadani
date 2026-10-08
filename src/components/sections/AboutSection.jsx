@@ -9,7 +9,7 @@ export default function AboutSection({ locale }) {
   const isRTL = locale === 'ar'
 
   return (
-    <section id="about" className="py-24 border-t border-white/10">
+    <section id="about" className="py-24 border-t border-white/10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${isRTL ? '' : ''}`}>
           {/* Image */}
@@ -30,10 +30,8 @@ export default function AboutSection({ locale }) {
                 ref={(img) => { if (img && img.complete && img.naturalWidth === 0) img.style.display = 'none' }}
                 onError={(e) => { e.target.style.display = 'none' }}
               />
-              <div className="flex flex-col items-center gap-3 text-white/70">
-                <span className="text-6xl">⚖️</span>
-                <span className="text-sm">{locale === 'ar' ? '[صورة المحامية]' : '[Photo à ajouter]'}</span>
-              </div>
+              {/* Visible tant que la photo de l'avocate n'est pas fournie */}
+              <img src="/images/logo-mark.webp" alt="" width={480} height={446} className="w-3/5 max-w-[280px] h-auto" />
             </div>
             {/* Accent */}
             <div className={`absolute top-[-20px] w-20 h-20 bg-gold/15 rounded-full ${isRTL ? 'left-[-20px]' : 'right-[-20px]'}`} />

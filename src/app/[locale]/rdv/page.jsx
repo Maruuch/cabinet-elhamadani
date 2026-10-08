@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations, useLocale } from '@/lib/i18n';
 import { CABINET } from '@/lib/cabinet.config';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -84,26 +85,16 @@ export default function RdvPage({ params: { locale } }) {
   };
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="overflow-hidden pt-[72px]">
+      {/* Panorama de Casablanca, fixe derrière toute la page */}
+      <PageBackdrop variant="casa" />
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-navy via-navy-900 to-navy text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute inset-0 opacity-10">
-          <motion.div
-            className="absolute top-20 right-32 w-96 h-96 bg-gold rounded-full filter blur-3xl"
-            animate={{ scale: [1, 1.15, 1], rotate: [0, 360] }}
-            transition={{ duration: 12, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-10 left-10 w-96 h-96 bg-gold rounded-full filter blur-3xl"
-            animate={{ scale: [1.2, 1, 1.2] }}
-            transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-          />
-        </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -124,7 +115,7 @@ export default function RdvPage({ params: { locale } }) {
           </motion.h1>
 
           <motion.p
-            className="text-xl text-slate-200 mb-8"
+            className="text-xl text-white/80 mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -146,7 +137,7 @@ export default function RdvPage({ params: { locale } }) {
             ].map((badge, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 flex items-center gap-2"
+                className="bg-white/10 border border-white/20 rounded-full px-4 py-2 flex items-center gap-2"
                 whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
               >
                 <span className="text-xl">{badge.icon}</span>
@@ -159,7 +150,7 @@ export default function RdvPage({ params: { locale } }) {
 
       {/* Main Content */}
       <motion.section
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-20 px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -169,14 +160,14 @@ export default function RdvPage({ params: { locale } }) {
           {/* Form Section */}
           <motion.div variants={itemVariants}>
             <div className="sticky top-32">
-              <h2 className="text-4xl font-bold text-navy mb-8">
+              <h2 className="text-4xl font-bold text-white mb-8">
                 Formulaire de réservation
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Service Selector - Pills */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-4">
+                  <label className="block text-sm font-semibold text-white mb-4">
                     Sélectionnez un service
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -193,7 +184,7 @@ export default function RdvPage({ params: { locale } }) {
                         className={`p-3 rounded-lg border-2 font-semibold transition-all duration-300 ${
                           formData.service === (service.title[locale] || service.title.fr)
                             ? 'border-gold bg-gold/10 text-gold'
-                            : 'border-slate-300 text-slate-600 hover:border-gold/50'
+                            : 'border-white/20 text-white/80 hover:border-gold/50'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -207,7 +198,7 @@ export default function RdvPage({ params: { locale } }) {
 
                 {/* Mode Selector - Pills */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-4">
+                  <label className="block text-sm font-semibold text-white mb-4">
                     Mode de consultation
                   </label>
                   <div className="grid grid-cols-3 gap-3">
@@ -224,8 +215,8 @@ export default function RdvPage({ params: { locale } }) {
                         }
                         className={`p-3 rounded-lg border-2 font-semibold transition-all duration-300 text-center ${
                           formData.mode === mode.value
-                            ? 'border-navy bg-navy/10 text-navy'
-                            : 'border-slate-300 text-slate-600 hover:border-navy/50'
+                            ? 'border-gold bg-gold/10 text-gold'
+                            : 'border-white/20 text-white/80 hover:border-gold/50'
                         }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -239,7 +230,7 @@ export default function RdvPage({ params: { locale } }) {
 
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Nom complet
                   </label>
                   <input
@@ -248,14 +239,14 @@ export default function RdvPage({ params: { locale } }) {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="Votre nom"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Téléphone
                   </label>
                   <input
@@ -264,14 +255,14 @@ export default function RdvPage({ params: { locale } }) {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="+33 6 00 00 00 00"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Email
                   </label>
                   <input
@@ -280,14 +271,14 @@ export default function RdvPage({ params: { locale } }) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="votre@email.com"
                   />
                 </div>
 
                 {/* Date */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Date préférée
                   </label>
                   <input
@@ -296,13 +287,13 @@ export default function RdvPage({ params: { locale } }) {
                     value={formData.date}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                   />
                 </div>
 
                 {/* Notes */}
                 <div>
-                  <label className="block text-sm font-semibold text-navy mb-2">
+                  <label className="block text-sm font-semibold text-white mb-2">
                     Notes supplémentaires
                   </label>
                   <textarea
@@ -310,7 +301,7 @@ export default function RdvPage({ params: { locale } }) {
                     value={formData.notes}
                     onChange={handleChange}
                     rows="4"
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all resize-none"
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all resize-none bg-white/[0.07] text-white placeholder-white/40 [color-scheme:dark]"
                     placeholder="Détails supplémentaires..."
                   />
                 </div>
@@ -329,7 +320,7 @@ export default function RdvPage({ params: { locale } }) {
                 {/* Success State */}
                 {submitted && (
                   <motion.div
-                    className="bg-green-50 border-2 border-green-400 rounded-lg p-4 flex items-start gap-4"
+                    className="bg-emerald-500/15 border-2 border-green-400 rounded-lg p-4 flex items-start gap-4"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                   >
@@ -341,10 +332,10 @@ export default function RdvPage({ params: { locale } }) {
                       ✅
                     </motion.div>
                     <div>
-                      <p className="font-bold text-green-700">
+                      <p className="font-bold text-emerald-200">
                         Rendez-vous demandé!
                       </p>
-                      <p className="text-sm text-green-600 mt-1">
+                      <p className="text-sm text-emerald-200 mt-1">
                         Je vous recontacterai très prochainement pour confirmer.
                       </p>
                     </div>
@@ -358,14 +349,14 @@ export default function RdvPage({ params: { locale } }) {
           <motion.div variants={itemVariants} className="space-y-8">
             {/* Google Calendar */}
             <div className="sticky top-32">
-              <h2 className="text-3xl font-bold text-navy mb-6">
+              <h2 className="text-3xl font-bold text-white mb-6">
                 Réservez directement via Google Agenda
               </h2>
 
               <div
                 id="google-calendar-container"
                 data-calendar-url="[GOOGLE_CALENDAR_URL]"
-                className="bg-gradient-to-br from-navy to-navy-800 rounded-xl p-12 text-center text-white h-96 flex flex-col items-center justify-center relative overflow-hidden group"
+                className="bg-[#0B1322]/55 border border-white/10 rounded-xl p-12 text-center text-white h-96 flex flex-col items-center justify-center relative overflow-hidden group"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -386,11 +377,11 @@ export default function RdvPage({ params: { locale } }) {
                     Google Calendar
                   </h3>
 
-                  <p className="text-slate-300 mb-6 text-sm max-w-xs">
+                  <p className="text-white/80 mb-6 text-sm max-w-xs">
                     [GOOGLE_CALENDAR_EMBED]
                   </p>
 
-                  <p className="text-slate-400 text-xs italic">
+                  <p className="text-white/60 text-xs italic">
                     Votre agenda sera connectée à mon système de disponibilités
                   </p>
                 </div>
@@ -398,7 +389,7 @@ export default function RdvPage({ params: { locale } }) {
 
               {/* Contact Reminders */}
               <div className="mt-8 space-y-4">
-                <h3 className="text-lg font-bold text-navy mb-4">
+                <h3 className="text-lg font-bold text-white mb-4">
                   Autres moyens de me contacter
                 </h3>
 
@@ -407,14 +398,14 @@ export default function RdvPage({ params: { locale } }) {
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-4 hover:border-green-400 transition-all duration-300"
+                  className="block bg-emerald-900/45 border-2 border-emerald-400/40 rounded-lg p-4 hover:border-green-400 transition-all duration-300"
                   whileHover={{ y: -2 }}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">💬</span>
                     <div>
-                      <p className="font-bold text-navy">WhatsApp</p>
-                      <p className="text-sm text-slate-600">
+                      <p className="font-bold text-white">WhatsApp</p>
+                      <p className="text-sm text-white/80">
                         {CABINET.contact.whatsapp}
                       </p>
                     </div>
@@ -424,13 +415,13 @@ export default function RdvPage({ params: { locale } }) {
                 {/* Email */}
                 <motion.a
                   href={`mailto:${CABINET.contact.email}`}
-                  className="block bg-white border-2 border-slate-200 rounded-lg p-4 hover:border-gold transition-all duration-300"
+                  className="block bg-[#0B1322]/55 border-2 border-white/10 rounded-lg p-4 hover:border-gold transition-all duration-300"
                   whileHover={{ y: -2 }}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">✉️</span>
                     <div>
-                      <p className="font-bold text-navy">Email</p>
+                      <p className="font-bold text-white">Email</p>
                       <p className="text-sm text-gold font-semibold">
                         {CABINET.contact.email}
                       </p>
@@ -439,12 +430,12 @@ export default function RdvPage({ params: { locale } }) {
                 </motion.a>
 
                 {/* Hours */}
-                <div className="bg-white border-2 border-slate-200 rounded-lg p-4">
+                <div className="bg-[#0B1322]/55 border-2 border-white/10 rounded-lg p-4">
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">🕐</span>
                     <div>
-                      <p className="font-bold text-navy mb-2">Horaires</p>
-                      <ul className="text-sm text-slate-600 space-y-1">
+                      <p className="font-bold text-white mb-2">Horaires</p>
+                      <ul className="text-sm text-white/80 space-y-1">
                         <li>Lun-Ven: 9:00 - 18:00</li>
                         <li>Sam: Sur RDV</li>
                       </ul>
@@ -459,7 +450,7 @@ export default function RdvPage({ params: { locale } }) {
 
       {/* Guarantee Bar */}
       <motion.section
-        className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-navy/5 to-gold/5 border-y border-navy/10"
+        className="py-10 px-4 sm:px-6 lg:px-8 bg-[#0B1322]/30 border-y border-white/10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -492,8 +483,8 @@ export default function RdvPage({ params: { locale } }) {
                 className="space-y-3"
               >
                 <div className="text-4xl">{item.icon}</div>
-                <h3 className="font-bold text-navy">{item.title}</h3>
-                <p className="text-sm text-slate-600">{item.desc}</p>
+                <h3 className="font-bold text-white">{item.title}</h3>
+                <p className="text-sm text-white/80">{item.desc}</p>
               </motion.div>
             ))}
           </div>

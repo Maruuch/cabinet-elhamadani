@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations, useLocale } from '@/lib/i18n';
 import { CABINET } from '@/lib/cabinet.config';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,35 +31,25 @@ export default function ServicesPage({ params: { locale } }) {
   const whatsappNumber = CABINET.contact.whatsapp.replace(/\D/g, '');
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="overflow-hidden pt-[72px]">
+      {/* Panorama de Casablanca, fixe derrière toute la page */}
+      <PageBackdrop variant="casa" />
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-navy via-navy-900 to-navy text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className="absolute inset-0 opacity-5">
-          <motion.div
-            className="absolute -top-20 -right-20 w-96 h-96 bg-gold rounded-full filter blur-3xl"
-            animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.1, 0.05] }}
-            transition={{ duration: 10, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute -bottom-20 -left-20 w-96 h-96 bg-gold rounded-full filter blur-3xl"
-            animate={{ scale: [1.15, 1, 1.15], opacity: [0.05, 0.1, 0.05] }}
-            transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-          />
-        </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            className="inline-block bg-gold/20 border border-gold rounded-full px-6 py-2 mb-6"
+            className="inline-block bg-[#0B1322]/60 border border-gold/60 rounded-full px-6 py-2 mb-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-gold text-sm font-semibold tracking-widest uppercase">
+            <span className="text-gold-light text-sm font-semibold tracking-widest uppercase">
               Nos expertises
             </span>
           </motion.div>
@@ -73,7 +64,7 @@ export default function ServicesPage({ params: { locale } }) {
           </motion.h1>
 
           <motion.p
-            className="text-xl text-slate-200 mb-8"
+            className="text-xl text-white/80 mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -94,7 +85,7 @@ export default function ServicesPage({ params: { locale } }) {
 
       {/* Services Grid */}
       <motion.section
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-white"
+        className="py-20 px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -110,13 +101,13 @@ export default function ServicesPage({ params: { locale } }) {
                 className="group"
               >
                 <motion.div
-                  className="h-full bg-white border-2 border-slate-200 rounded-xl p-8 hover:border-gold transition-all duration-300 flex flex-col overflow-hidden relative"
+                  className="h-full bg-[#0B1322]/55 border-2 border-white/10 rounded-xl p-8 hover:border-gold transition-all duration-300 flex flex-col overflow-hidden relative"
                   whileHover={{ y: -8 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 >
                   {/* Gradient overlay on hover */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-gold to-navy opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-gold to-navy opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Icon */}
                   <motion.div
@@ -128,17 +119,17 @@ export default function ServicesPage({ params: { locale } }) {
                   </motion.div>
 
                   {/* Title & Description */}
-                  <h3 className="text-2xl font-bold text-navy mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-4">
                     {service.title[locale] || service.title.fr}
                   </h3>
 
-                  <p className="text-slate-600 leading-relaxed mb-6 flex-grow">
+                  <p className="text-white/80 leading-relaxed mb-6 flex-grow">
                     {service.description[locale] || service.description.fr}
                   </p>
 
                   {/* How it works section */}
-                  <div className="border-t border-slate-200 pt-6 mb-8">
-                    <h4 className="text-sm font-semibold text-navy uppercase tracking-widest mb-4">
+                  <div className="border-t border-white/10 pt-6 mb-8">
+                    <h4 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">
                       Comment ça marche
                     </h4>
                     <ul className="space-y-3">
@@ -149,7 +140,7 @@ export default function ServicesPage({ params: { locale } }) {
                       ].map((step, sidx) => (
                         <motion.li
                           key={sidx}
-                          className="flex items-start gap-3 text-slate-600 text-sm"
+                          className="flex items-start gap-3 text-white/80 text-sm"
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ delay: sidx * 0.1 }}
@@ -169,7 +160,7 @@ export default function ServicesPage({ params: { locale } }) {
                     href={`https://wa.me/${whatsappNumber}?text=Bonjour, je suis intéressé par votre service: ${service.title[locale] || service.title.fr}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300 w-full"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300 w-full"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -185,16 +176,11 @@ export default function ServicesPage({ params: { locale } }) {
 
       {/* Bottom CTA Section */}
       <motion.section
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-navy via-navy-800 to-navy text-white relative overflow-hidden"
+        className="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/10 text-white relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-gold rounded-full filter blur-3xl opacity-10"
-          animate={{ scale: [1, 1.2, 1], y: [0, -30, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.h2
@@ -207,7 +193,7 @@ export default function ServicesPage({ params: { locale } }) {
           </motion.h2>
 
           <motion.p
-            className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto"
+            className="text-xl text-white/80 mb-12 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

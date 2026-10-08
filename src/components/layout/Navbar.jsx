@@ -30,13 +30,17 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 h-[72px] bg-white/95 backdrop-blur-xl border-b border-slate-100 transition-all duration-300 ${scrolled ? 'shadow-md' : ''}`}>
-        <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-3 sm:gap-6">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 bg-navy rounded-xl flex items-center justify-center text-white text-xl">⚖</div>
-            <div className="leading-tight">
+          <Link href={`/${locale}`} className="flex items-center gap-3 min-w-0">
+            {/* Logo : monogramme doré sur le bleu nuit du logo */}
+            <span className="w-12 h-12 bg-[#01224E] rounded-xl flex items-center justify-center flex-shrink-0">
+              <img src="/images/logo-mark.webp" alt="" width={480} height={446} className="w-10 h-auto" />
+            </span>
+            <div className="leading-tight min-w-0">
               <div className="text-[15px] font-extrabold text-navy leading-tight">{CABINET.nomLigne1[locale]}</div>
-              <div className="text-[12px] font-medium text-slate-500 leading-tight">{CABINET.nomLigne2[locale]}</div>
+              {/* Sous-titre masqué sur les petits téléphones : il ne tient pas sur une ligne à côté du logo */}
+              <div className="hidden min-[430px]:block text-[12px] font-medium text-slate-500 leading-tight">{CABINET.nomLigne2[locale]}</div>
             </div>
           </Link>
 

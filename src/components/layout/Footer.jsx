@@ -14,6 +14,7 @@ export default function Footer({ locale }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
+            <img src="/images/logo-mark.webp" alt="" width={480} height={446} className="w-20 h-auto mb-4" />
             <div className="text-white font-extrabold text-lg mb-1">{CABINET.nom[locale]}</div>
             <div className="text-sm mb-5">{CABINET.avocat.titre[locale]}</div>
             <div className="flex gap-2">
