@@ -28,15 +28,15 @@ export default function AboutSection({ locale }) {
                 onError={(e) => { e.target.style.display = 'none' }}
               />
               <div className="flex flex-col items-center gap-3 text-slate-400">
-                <span className="text-6xl">âï¸</span>
-                <span className="text-sm">{locale === 'ar' ? '[ØµÙØ±Ø© Ø§ÙÙØ­Ø§ÙÙØ©]' : '[Photo Ã  ajouter]'}</span>
+                <span className="text-6xl">⚖️</span>
+                <span className="text-sm">{locale === 'ar' ? '[صورة المحامية]' : '[Photo à ajouter]'}</span>
               </div>
             </div>
             {/* Accent */}
             <div className={`absolute top-[-20px] w-20 h-20 bg-gold/15 rounded-full ${isRTL ? 'left-[-20px]' : 'right-[-20px]'}`} />
             {/* Badge */}
             <div className={`absolute bottom-7 bg-navy text-white px-5 py-3.5 rounded-xl text-sm font-bold shadow-xl ${isRTL ? '-right-5' : '-left-5'}`}>
-              â {locale === 'ar' ? 'ÙÙØ¦Ø© Ø§ÙØ¯Ø§Ø± Ø§ÙØ¨ÙØ¸Ø§Ø¡' : 'Barreau de Casablanca'}
+              ⚖ {locale === 'ar' ? 'هيئة الدار البيضاء' : 'Barreau de Casablanca'}
             </div>
           </motion.div>
 
@@ -62,7 +62,7 @@ export default function AboutSection({ locale }) {
             </div>
 
             <Link href={`/${locale}/about`} className="btn-navy">
-              {t('read_more')} <span>{locale === 'ar' ? 'â' : 'â'}</span>
+              {t('read_more')} <span>{locale === 'ar' ? '←' : '→'}</span>
             </Link>
           </motion.div>
         </div>

@@ -15,7 +15,7 @@ export default function HeroSection({ locale }) {
   const isRTL = locale === 'ar'
   const num = CABINET.contact.whatsapp.replace(/\D/g, '')
   const waMsg = encodeURIComponent(locale === 'ar'
-    ? 'ÃÂ§ÃÂÃÂ³ÃÂÃÂ§ÃÂ ÃÂ¹ÃÂÃÂÃÂÃÂÃÂ ÃÂ£ÃÂÃÂ¯ ÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂÃÂ³ÃÂ§ÃÂ± ÃÂ¹ÃÂ ÃÂ®ÃÂ¯ÃÂÃÂ§ÃÂª ÃÂÃÂÃÂªÃÂ¨ ÃÂ§ÃÂÃÂ­ÃÂÃÂ¯ÃÂ§ÃÂÃÂ.'
+    ? 'السلام عليكم، أود الاستفسار عن خدمات مكتب الحمداني.'
     : 'Bonjour, je souhaite me renseigner sur les services du Cabinet Elhamadani.'
   )
 
@@ -48,11 +48,11 @@ export default function HeroSection({ locale }) {
 
           <motion.div {...fadeUp(0.4)} className="flex flex-wrap gap-3 mb-10">
             <a href={`https://wa.me/${num}?text=${waMsg}`} target="_blank" rel="noopener" className="btn-primary">
-              <span>Ã°ÂÂÂ¬</span> {t('cta_wa')}
+              <span>💬</span> {t('cta_wa')}
             </a>
             <Link href={`/${locale}/contact`} className="btn-outline-white">
               {t('cta_rdv')}
-              <span className={isRTL ? 'Ã¢ÂÂ' : 'Ã¢ÂÂ'} />
+              <span className={isRTL ? '←' : '→'} />
             </Link>
           </motion.div>
 

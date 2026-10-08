@@ -24,7 +24,7 @@ export const CABINET = {
       fr: "Avocate au Barreau de Casablanca",
     },
     bio: {
-      ar: "أستاذة الحمداني فاطمة الزهراء، محامية بهيئة الدار البيضاء، حاصلة على الإجازة في الدراسات القانونية وماستر في الدراسات العقارية والتعمير. تتميز بكفاءة غالية في تقديم الاستشارات القانونية والدفاع عن حقوق موكليها أمام مختلف المحاكم المغربية.",
+      ar: "أستاذة الحمداني فاطمة الزهراء، محامية بهيئة الدار البيضاء، حاصلة على الإجازة في الدراسات القانونية وماستر في الدراسات العقارية والتعمير. تتميز بكفاءة عالية في تقديم الاستشارات القانونية والدفاع عن حقوق موكليها أمام مختلف المحاكم المغربية.",
       fr: "Maître Fatima Zahra Elhamadani, avocate inscrite au Barreau de Casablanca, titulaire d'une Licence en Études Juridiques et d'un Master en Études Immobilières et Urbanisme. Elle se distingue par sa rigueur et son engagement dans la défense des intérêts de ses clients devant les juridictions marocaines.",
     },
     experience: {
@@ -56,7 +56,7 @@ export const CABINET = {
       icon: "⚖️",
       title: { ar: "القانون المدني", fr: "Droit Civil" },
       description: {
-        ar: "نتولى الدفاع عن حقوقكم في النزاعات المدنية، العقود، والقضايا الؼقارية بكفاءة واحترافية.",
+        ar: "نتولى الدفاع عن حقوقكم في النزاعات المدنية، العقود، والقضايا العقارية بكفاءة واحترافية.",
         fr: "Nous défendons vos droits dans les litiges civils, les contrats et la propriété immobilière avec compétence et professionnalisme.",
       },
     },
@@ -172,7 +172,7 @@ export const CABINET = {
     },
     {
       q: {
-        ar: "ما هي المناطق التي تؼطيها الخدمات القانونية؟",
+        ar: "ما هي المناطق التي تغطيها الخدمات القانونية؟",
         fr: "Quelles zones géographiques couvrez-vous ?",
       },
       a: {
@@ -182,7 +182,7 @@ export const CABINET = {
     },
     {
       q: {
-        ar: "كم تستؼرق القضية القانونية؟",
+        ar: "كم تستغرق القضية القانونية؟",
         fr: "Combien de temps dure une procédure judiciaire ?",
       },
       a: {

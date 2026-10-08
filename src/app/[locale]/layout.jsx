@@ -12,11 +12,11 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params: { locale } }) {
   const titles = {
-    ar: 'مكتب الحمداني للمحاماة — الٯار البيضاء',
+    ar: 'مكتب الحمداني للمحاماة — الدار البيضاء',
     fr: 'Cabinet Elhamadani — Avocate à Casablanca',
   }
   const descs = {
-    ar: 'محامية بهيئة الدار البيظاء — خبرة قانونية راسخة في المظرب',
+    ar: 'محامية بهيئة الدار البيضاء — خبرة قانونية راسخة في المغرب',
     fr: 'Avocate au Barreau de Casablanca — Expertise juridique au Maroc',
   }
   return {
