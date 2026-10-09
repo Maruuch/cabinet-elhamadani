@@ -301,28 +301,27 @@ export default function ContactPage({ params: { locale } }) {
               </div>
             </motion.div>
 
-            {/* Maps Placeholder */}
-            <motion.div
-              className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl overflow-hidden h-80"
-              whileHover={{ y: -4 }}
-            >
-              <div className="w-full h-full bg-[#0B1322]/55 border border-white/10 flex items-center justify-center text-white relative">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🗺️</div>
-                  <p className="text-lg font-semibold mb-2">[GOOGLE_MAPS_EMBED_URL]</p>
-                  <p className="text-white/80 text-sm">Intégration Google Maps à compléter</p>
-                </div>
-                <iframe
-                  src="[GOOGLE_MAPS_EMBED_URL]"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'none' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </motion.div>
+            {/* Carte Google Maps du cabinet (URL dans cabinet.config.js > contact.mapsEmbed) */}
+            <div className="bg-[#0B1322]/55 border-2 border-white/10 rounded-xl overflow-hidden">
+              <iframe
+                src={CABINET.contact.mapsEmbed[locale] || CABINET.contact.mapsEmbed.fr}
+                title={locale === 'ar' ? 'موقع المكتب على خرائط Google' : 'Localisation du cabinet sur Google Maps'}
+                className="block w-full h-80"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+              <a
+                href={CABINET.contact.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-3 px-5 py-3.5 text-sm font-semibold text-gold-light hover:text-white hover:bg-white/5 transition-colors duration-300"
+              >
+                <span>{locale === 'ar' ? 'فتح في خرائط Google' : 'Ouvrir dans Google Maps'}</span>
+                <span aria-hidden="true">{locale === 'ar' ? '←' : '→'}</span>
+              </a>
+            </div>
           </motion.div>
         </div>
       </motion.section>

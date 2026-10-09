@@ -47,7 +47,18 @@ export const CABINET = {
       ar: "الإثنين – الجمعة: 9:00 – 18:00",
       fr: "Lundi – Vendredi : 9h00 – 18h00",
     },
-    maps: "https://maps.google.com/?q=160+Mustapha+El+Maani+Casablanca",
+    // Lien "ouvrir dans Google Maps" : recherche de l'adresse, qui ouvre la
+    // fiche du 160 Rue Mustapha El Maani.
+    maps: "https://www.google.com/maps/search/?api=1&query=160+Rue+Mustapha+El+Maani+Casablanca",
+    // Carte intégrée de la page Contact. Code obtenu dans Google Maps :
+    // Partager > Intégrer une carte. Aucune clé ni compte requis.
+    // Seuls la langue (1sfr / 1sar) et la région (2sma = Maroc) diffèrent
+    // du code d'origine. Pour changer d'adresse, refaire la manipulation
+    // et remplacer tout ce qui suit "pb=".
+    mapsEmbed: {
+      fr: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.642580159933!2d-7.616744799999999!3d33.5886282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d2993444a997%3A0x61b5d5c136cce724!2s160%20Rue%20Mustapha%20El%20Maani%2C%20Casablanca%2020250%2C%20Maroc!5e0!3m2!1sfr!2sma!4v1791532270708!5m2!1sfr!2sma",
+      ar: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.642580159933!2d-7.616744799999999!3d33.5886282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d2993444a997%3A0x61b5d5c136cce724!2s160%20Rue%20Mustapha%20El%20Maani%2C%20Casablanca%2020250%2C%20Maroc!5e0!3m2!1sar!2sma!4v1791532270708!5m2!1sar!2sma",
+    },
   },
 
   services: [
